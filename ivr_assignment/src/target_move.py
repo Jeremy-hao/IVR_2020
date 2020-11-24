@@ -42,10 +42,14 @@ def move():
     joint5.data=  y_d
     joint6=Float64()
     joint6.data= 7.5
+    print(joint3.data)
     robot_joint4_pub.publish(joint4)
     robot_joint5_pub.publish(joint5)
     robot_joint6_pub.publish(joint6)
     rate.sleep()
+
+    target_location = (joint1.data, joint2.data, joint3.data)
+    print(np.asarray(target_location))
 
 
 
@@ -55,5 +59,3 @@ if __name__ == '__main__':
     move()
   except rospy.ROSInterruptException:
     pass
-
-
